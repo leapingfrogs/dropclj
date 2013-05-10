@@ -1,11 +1,9 @@
 (ns dropclj.core
-  (:gen-class
-    :extends dropclj.DropcljService))
-;    :methods [[cljrun [com.yammer.dropwizard.config.Environment] Void]]))
+  (:require [dropclj.resource :refer :all ])
+  (:gen-class :extends dropclj.DropcljService))
 
 (defn -cljrun [_ env]
-  (.addResource env (dropclj.HelloResource.))
-  (println (str "Here: " env)))
+  (.addResource env (dropclj.resource.Greeter.)))
 
 (defn -main
   [& args]
