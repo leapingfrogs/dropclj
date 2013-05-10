@@ -17,5 +17,4 @@ public abstract class DropcljService extends Service<Configuration> {
     }
 
     public abstract void cljrun(Environment environment);
-
 }
