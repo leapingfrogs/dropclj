@@ -1,6 +1,6 @@
 (ns dropclj.core-test
-  (:require [clojure.test :refer :all]
-            [dropclj.core :refer :all]))
+  (:require [clojure.test :refer :all ]
+            [dropclj.core :refer :all ]))
 
 (deftest a-test
   (testing "FIXME, I fail."

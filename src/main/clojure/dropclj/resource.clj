@@ -1,12 +1,12 @@
 (ns dropclj.resource
-  (:import [javax.ws.rs GET Path]))
+  (:import [javax.ws.rs GET Path PathParam]))
 
-(defn greet []
-  "Yo, mamma!")
+(defn greet [name]
+  (str "Yo, " name "!"))
 
 (definterface IGreet
-  (sayHello []))
+  (sayHello [^String name]))
 
-(deftype ^{Path {:value "/greet"}} Greeter []
+(deftype ^{Path {:value "/greet/{name}"}} Greeter []
   IGreet
-  (^{GET {}} sayHello [_] (greet)))
+  (^{GET {}} sayHello [_ ^{PathParam {:value "name"}} ^String name] (greet name)))
